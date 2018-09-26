@@ -20,7 +20,7 @@ namespace SeedGenerator
 
         static async Task AsyncMain()
         {
-            var listOfPatients = Patient.Generate(400);
+            var listOfPatients = Patient.Generate(1);
 
             var dispatcher = await SetupDispatcher();
 
@@ -34,6 +34,22 @@ namespace SeedGenerator
             await TransferPatients(listOfPatients, dispatcher);
             await DischargePatients(listOfPatients, dispatcher);
         }
+
+        //static async Task AsyncMain() {
+        //    var listOfPatients = Patient.Generate(400);
+
+        //    var dispatcher = await SetupDispatcher();
+
+        //    await AdmitPatients(listOfPatients, dispatcher);
+        //    await TransferPatients(listOfPatients, dispatcher);
+        //    await DischargeAllPatients(listOfPatients, dispatcher);
+
+        //    listOfPatients = Patient.Generate(20);
+
+        //    await AdmitPatients(listOfPatients, dispatcher);
+        //    await TransferPatients(listOfPatients, dispatcher);
+        //    await DischargePatients(listOfPatients, dispatcher);
+        //}
 
         private static async Task DischargePatients(IEnumerable<Patient> listOfPatients, Dispatcher dispatcher)
         {
